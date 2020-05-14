@@ -2,7 +2,7 @@
 """
 Created on Fri Apr 17 14:31:10 2020
 
-@author: Robert
+@author: Robert(factor computation), Mumu(data filter)
 """
 #%% load library
 
@@ -51,7 +51,7 @@ Sum1['Trading_Status2'] = Sum1 > 120
 Sum2=pd.DataFrame(Sum1.reset_index().sort_values(by = "level_1")["Trading_Status2"])
 data['Trading_Record_120']=Sum2['Trading_Status2'] 
 
-
+# FIXME: incorrect
 #exclude firms listed less than 6 month
 FUN_M_4=pd.DataFrame(data.groupby(["SID"])["Trading_Month"].count())
 FUN_M_4.reset_index(inplace = True)
